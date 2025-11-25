@@ -108,16 +108,18 @@ export default function HomePage() {
             <span className="text-[10px] font-medium">Sleep</span>
           </div>
         </Link>
-        <Link href="/home">
+        <Link href="/stats">
           <div className="flex flex-col items-center gap-1 text-muted-foreground hover:text-white transition-colors cursor-pointer">
             <BarChart3 className="w-6 h-6" />
             <span className="text-[10px] font-medium">Stats</span>
           </div>
         </Link>
-        <div className="flex flex-col items-center gap-1 text-muted-foreground hover:text-white transition-colors cursor-pointer">
-          <User className="w-6 h-6" />
-          <span className="text-[10px] font-medium">Profile</span>
-        </div>
+        <Link href="/profile">
+          <div className="flex flex-col items-center gap-1 text-muted-foreground hover:text-white transition-colors cursor-pointer">
+            <User className="w-6 h-6" />
+            <span className="text-[10px] font-medium">Profile</span>
+          </div>
+        </Link>
       </div>
     </div>
   );

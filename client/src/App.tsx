@@ -8,6 +8,8 @@ import Landing from "@/pages/landing";
 import HomePage from "@/pages/home";
 import PlayerPage from "@/pages/player";
 import MixerPage from "@/pages/mixer";
+import StatsPage from "@/pages/stats";
+import ProfilePage from "@/pages/profile";
 import SurveyPage from "@/pages/wireframes/survey";
 import InterviewPage from "@/pages/wireframes/interview";
 import TestList from "@/pages/wireframes/test-list";
@@ -21,6 +23,8 @@ function Router() {
       <Route path="/home" component={HomePage} />
       <Route path="/player/:id" component={PlayerPage} />
       <Route path="/mixer" component={MixerPage} />
+      <Route path="/stats" component={StatsPage} />
+      <Route path="/profile" component={ProfilePage} />
       
       {/* Wireframe/Research Routes */}
       <Route path="/wireframes/survey" component={SurveyPage} />
