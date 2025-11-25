@@ -10,6 +10,9 @@ import PlayerPage from "@/pages/player";
 import MixerPage from "@/pages/mixer";
 import SurveyPage from "@/pages/wireframes/survey";
 import InterviewPage from "@/pages/wireframes/interview";
+import TestList from "@/pages/wireframes/test-list";
+import TestPlayer from "@/pages/wireframes/test-player";
+import TestMixer from "@/pages/wireframes/test-mixer";
 
 function Router() {
   return (
@@ -23,7 +26,11 @@ function Router() {
       <Route path="/wireframes/survey" component={SurveyPage} />
       <Route path="/wireframes/interview" component={InterviewPage} />
       <Route path="/wireframes/ideate" component={SurveyPage} /> {/* Placeholder */}
-      <Route path="/wireframes/test" component={SurveyPage} /> {/* Placeholder */}
+      
+      {/* Testing Phase Routes */}
+      <Route path="/wireframes/test/list" component={TestList} />
+      <Route path="/wireframes/test/player" component={TestPlayer} />
+      <Route path="/wireframes/test/mixer" component={TestMixer} />
       
       <Route component={NotFound} />
     </Switch>

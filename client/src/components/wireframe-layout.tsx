@@ -9,7 +9,7 @@ export default function WireframeLayout({ children }: { children: React.ReactNod
     { name: "DEFINE", path: "/wireframes/interview" },
     { name: "IDEATE", path: "/wireframes/ideate" },
     { name: "PROTOTYPE", path: "/home" },
-    { name: "TEST", path: "/wireframes/test" },
+    { name: "TEST", path: "/wireframes/test/list" },
   ];
 
   return (
