@@ -38,9 +38,9 @@ export default function Landing() {
               Log In
             </Button>
           </Link>
-          <Link href="/home">
+          <Link href="/wireframes/survey">
             <Button variant="outline" className="w-full h-14 text-lg font-medium rounded-2xl border-white/20 bg-transparent hover:bg-white/5 text-white transition-all hover:scale-[1.02] active:scale-[0.98]">
-              Sign Up
+              View Wireframes
             </Button>
           </Link>
         </div>
