@@ -26,7 +26,7 @@ export default function Landing() {
         className="z-10 w-full max-w-md space-y-8 text-center"
       >
         <div className="space-y-2">
-          <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg">Sleepify</h1>
+          <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg">Dreamly</h1>
           <p className="text-lg text-white/60 font-light">
             The app that will help you to have a better sleep
           </p>

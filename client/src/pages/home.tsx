@@ -15,7 +15,7 @@ export default function HomePage() {
       {/* Header */}
       <div className="p-6 pt-12 flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white font-serif tracking-tight">Sleepify</h1>
+          <h1 className="text-3xl font-bold text-white font-serif tracking-tight">Dreamly</h1>
           <p className="text-muted-foreground">Welcome back, Dreamer</p>
         </div>
         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-400 border-2 border-white/10" />
