@@ -43,7 +43,9 @@ export default function HomePage() {
       <div className="space-y-4">
         <div className="px-6 flex justify-between items-center">
           <h2 className="text-xl font-semibold text-white">Sleepcast</h2>
-          <span className="text-xs font-mono text-muted-foreground cursor-pointer hover:text-primary transition-colors">SEE ALL</span>
+          <Link href="/sleepcasts">
+            <span className="text-xs font-mono text-muted-foreground cursor-pointer hover:text-primary transition-colors">SEE ALL</span>
+          </Link>
         </div>
 
         <ScrollArea className="w-full whitespace-nowrap pl-6">

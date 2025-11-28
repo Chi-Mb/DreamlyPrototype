@@ -10,6 +10,11 @@ import PlayerPage from "@/pages/player";
 import MixerPage from "@/pages/mixer";
 import StatsPage from "@/pages/stats";
 import ProfilePage from "@/pages/profile";
+import OnboardingGoal from "@/pages/onboarding-goal";
+import OnboardingWindup from "@/pages/onboarding-windup";
+import SleepcastLibrary from "@/pages/sleepcast-library";
+import SmartAlarm from "@/pages/smart-alarm";
+import Badges from "@/pages/badges";
 import SurveyPage from "@/pages/wireframes/survey";
 import InterviewPage from "@/pages/wireframes/interview";
 import TestList from "@/pages/wireframes/test-list";
@@ -25,11 +30,18 @@ function Router() {
       <Route path="/mixer" component={MixerPage} />
       <Route path="/stats" component={StatsPage} />
       <Route path="/profile" component={ProfilePage} />
+      <Route path="/sleepcasts" component={SleepcastLibrary} />
+      <Route path="/smart-alarm" component={SmartAlarm} />
+      <Route path="/badges" component={Badges} />
+      
+      {/* Onboarding */}
+      <Route path="/onboarding/goal" component={OnboardingGoal} />
+      <Route path="/onboarding/windup" component={OnboardingWindup} />
       
       {/* Wireframe/Research Routes */}
       <Route path="/wireframes/survey" component={SurveyPage} />
       <Route path="/wireframes/interview" component={InterviewPage} />
-      <Route path="/wireframes/ideate" component={SurveyPage} /> {/* Placeholder */}
+      <Route path="/wireframes/ideate" component={SurveyPage} />
       
       {/* Testing Phase Routes */}
       <Route path="/wireframes/test/list" component={TestList} />

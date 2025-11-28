@@ -1,0 +1,43 @@
+1. Welcome / Landing Screen
+
+Display a calming dark-mode background with a purple and teal gradient. Show a large title reading “Dreamly” with a soft, relaxing subtitle that says “Better sleep starts tonight.” Present two clear buttons labeled Log In and Sign Up. Include a small footer link for “Learn More,” keeping the layout minimal and soothing.
+
+2. Onboarding Screen 1 — Sleep Goal Setup
+
+Introduce a header that says “Let’s set your sleep goal.” Provide a simple way for the user to choose their ideal sleep duration along with bedtime and wake-time pickers. Include a soft moon or bed illustration and a single Continue button at the bottom.
+
+3. Onboarding Screen 2 — Wind-Down Preferences
+
+Display the title “Create your wind-down routine.” Allow the user to toggle options like screen dimming, notifications muting, breathing exercises, and soundscapes. Include a dropdown for selecting wind-down duration between 10 and 30 minutes. Use calm visuals and end the screen with a Finish Setup button.
+
+4. Dashboard / Home Screen
+
+Show the user’s Sleep Score in a simple circular graphic at the top. Place the streak badge right beside it, such as a flame icon with the number of days. Include a card for starting the wind-down routine for the night and another card showing the upcoming wake time with an option to quickly edit it. Add a soft ambient background and a bottom navigation bar with icons for Home, Mixer, Insights, and Profile.
+
+5. Wind-Down Flow Screen
+
+Present a 30-minute countdown timer with the screen gradually dimming over time. Introduce elements one at a time such as a breathing exercise, a calming message, and a button to begin a soundscape. Include a one-minute warning before the lock activates. Below it, show an “Emergency Override” option that requires three taps to confirm.
+
+6. Custom Sound Mixer
+
+Use a clear title reading “Sleep Mix.” Display horizontal sliders for different sound layers such as white noise, rain, forest ambience, or soft music. Add small icons to represent each sound. Include a live preview toggle and place a floating Save Mix button at the bottom center for easy access.
+
+7. Smart Alarm Setup Screen
+
+Feature a title called “Smart Alarm.” Present a time picker to set the target wake time. Add a short explanation that the alarm will wake the user within a 30-minute window during their lightest sleep phase. Include toggles for gentle vibration and fade-in sound. Finish with a Set Alarm button.
+
+8. Sleep Insights Screen
+
+Show a simple daily or weekly Sleep Score chart. Display cards summarizing total sleep duration, consistency, and cycle efficiency. Use friendly, supportive text to explain each insight. Include a section for badges and achievements with a clean, minimal graph layout.
+
+9. Badges & Streaks Modal
+
+Present a grid of earned and locked badges. Highlight the active streak, for example “🔥 7-day streak,” with a subtle animated glow. Add a short motivational message encouraging consistency.
+
+10. Profile / Settings Screen
+
+Display a simple profile header with an avatar. Below it, show an organized list of options such as editing the sleep goal, managing the wind-down routine, viewing saved sound mixes, adjusting notifications, and switching app theme settings. Keep spacing airy and the layout minimal.
+
+11. Sleepcast Library Screen
+
+Present a soft grid of sleepcast cards featuring images, titles, and durations like “Moon Night” or “Rain Forest.” Add a search bar at the top that reads “Find a calming track…” Include simple tabs to switch between categories such as Sleepcasts, Stories, and Meditations.
