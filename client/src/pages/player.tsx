@@ -4,8 +4,19 @@ import { ArrowLeft, MoreVertical, Play, Pause, SkipBack, SkipForward, Heart, Sha
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 
+const SLEEPCASTS: Record<string, { title: string; subtitle: string; duration: string; gradient: string }> = {
+  "1": { title: "Moon Night", subtitle: "7 Day Audio Series", duration: "92:58", gradient: "from-indigo-500 to-purple-700" },
+  "2": { title: "Rain Forest", subtitle: "Nature Sounds", duration: "120:42", gradient: "from-emerald-500 to-teal-700" },
+  "3": { title: "Ocean Waves", subtitle: "White Noise", duration: "87:15", gradient: "from-blue-500 to-cyan-700" },
+  "4": { title: "Bedtime Stories", subtitle: "Narrated Tales", duration: "45:30", gradient: "from-purple-500 to-pink-700" },
+  "5": { title: "Guided Sleep", subtitle: "Meditation Guide", duration: "62:15", gradient: "from-purple-500 to-indigo-700" },
+  "6": { title: "Deep Sleep", subtitle: "Sleep Therapy", duration: "71:20", gradient: "from-teal-500 to-cyan-700" },
+};
+
 export default function PlayerPage() {
   const [, params] = useRoute("/player/:id");
+  const castId = params?.id || "1";
+  const sleepcast = SLEEPCASTS[castId] || SLEEPCASTS["1"];
   const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState([33]);
 
@@ -30,7 +41,7 @@ export default function PlayerPage() {
       {/* Content */}
       <div className="flex-1 flex flex-col px-8 pb-12 z-10">
         {/* Art */}
-        <div className="w-full aspect-square rounded-[2.5rem] bg-gradient-to-br from-indigo-500 to-purple-700 shadow-2xl shadow-primary/20 mb-12 relative overflow-hidden group">
+        <div className={`w-full aspect-square rounded-[2.5rem] bg-gradient-to-br ${sleepcast.gradient} shadow-2xl shadow-primary/20 mb-12 relative overflow-hidden group`}>
            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-60 mix-blend-overlay" />
            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
         </div>
@@ -38,8 +49,8 @@ export default function PlayerPage() {
         {/* Title Info */}
         <div className="flex justify-between items-start mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Moon night</h1>
-            <p className="text-white/60 text-lg">7 Day Audio Series</p>
+            <h1 className="text-3xl font-bold text-white mb-2">{sleepcast.title}</h1>
+            <p className="text-white/60 text-lg">{sleepcast.subtitle}</p>
           </div>
           <Button size="icon" variant="ghost" className="text-white/40 hover:text-primary transition-colors">
             <Heart className="w-7 h-7" />
@@ -57,7 +68,7 @@ export default function PlayerPage() {
           />
           <div className="flex justify-between text-xs font-mono text-white/40">
             <span>46:03</span>
-            <span>92:58</span>
+            <span>{sleepcast.duration}</span>
           </div>
         </div>
 

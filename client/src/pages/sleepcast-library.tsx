@@ -52,46 +52,52 @@ export default function SleepcastLibrary() {
 
           <TabsContent value="sleepcasts" className="space-y-4 mt-6">
             {filtered.map(cast => (
-              <div key={cast.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card/50 hover:bg-card border border-white/5 transition-colors cursor-pointer group">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/30 to-teal-500/30 flex items-center justify-center text-3xl group-hover:from-purple-500/50 group-hover:to-teal-500/50 transition-colors">
-                  {cast.emoji}
+              <Link key={cast.id} href={`/player/${cast.id}`}>
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-card/50 hover:bg-card border border-white/5 transition-colors cursor-pointer group">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/30 to-teal-500/30 flex items-center justify-center text-3xl group-hover:from-purple-500/50 group-hover:to-teal-500/50 transition-colors">
+                    {cast.emoji}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-white font-medium">{cast.title}</h4>
+                    <p className="text-sm text-muted-foreground">{cast.duration}</p>
+                  </div>
+                  <Play className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-white font-medium">{cast.title}</h4>
-                  <p className="text-sm text-muted-foreground">{cast.duration}</p>
-                </div>
-                <Play className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
-              </div>
+              </Link>
             ))}
           </TabsContent>
 
           <TabsContent value="stories" className="space-y-4 mt-6">
             {filtered.map(cast => (
-              <div key={cast.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card/50 hover:bg-card border border-white/5 transition-colors cursor-pointer group">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/30 to-teal-500/30 flex items-center justify-center text-3xl group-hover:from-purple-500/50 group-hover:to-teal-500/50 transition-colors">
-                  {cast.emoji}
+              <Link key={cast.id} href={`/player/${cast.id}`}>
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-card/50 hover:bg-card border border-white/5 transition-colors cursor-pointer group">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/30 to-teal-500/30 flex items-center justify-center text-3xl group-hover:from-purple-500/50 group-hover:to-teal-500/50 transition-colors">
+                    {cast.emoji}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-white font-medium">{cast.title}</h4>
+                    <p className="text-sm text-muted-foreground">{cast.duration}</p>
+                  </div>
+                  <Play className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-white font-medium">{cast.title}</h4>
-                  <p className="text-sm text-muted-foreground">{cast.duration}</p>
-                </div>
-                <Play className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
-              </div>
+              </Link>
             ))}
           </TabsContent>
 
           <TabsContent value="meditations" className="space-y-4 mt-6">
             {filtered.map(cast => (
-              <div key={cast.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card/50 hover:bg-card border border-white/5 transition-colors cursor-pointer group">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/30 to-teal-500/30 flex items-center justify-center text-3xl group-hover:from-purple-500/50 group-hover:to-teal-500/50 transition-colors">
-                  {cast.emoji}
+              <Link key={cast.id} href={`/player/${cast.id}`}>
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-card/50 hover:bg-card border border-white/5 transition-colors cursor-pointer group">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/30 to-teal-500/30 flex items-center justify-center text-3xl group-hover:from-purple-500/50 group-hover:to-teal-500/50 transition-colors">
+                    {cast.emoji}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-white font-medium">{cast.title}</h4>
+                    <p className="text-sm text-muted-foreground">{cast.duration}</p>
+                  </div>
+                  <Play className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-white font-medium">{cast.title}</h4>
-                  <p className="text-sm text-muted-foreground">{cast.duration}</p>
-                </div>
-                <Play className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
-              </div>
+              </Link>
             ))}
           </TabsContent>
         </Tabs>
