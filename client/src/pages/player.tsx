@@ -1,24 +1,121 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, MoreVertical, Play, Pause, SkipBack, SkipForward, Heart, Share2 } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 
-const SLEEPCASTS: Record<string, { title: string; subtitle: string; duration: string; gradient: string }> = {
-  "1": { title: "Moon Night", subtitle: "7 Day Audio Series", duration: "92:58", gradient: "from-indigo-500 to-purple-700" },
-  "2": { title: "Rain Forest", subtitle: "Nature Sounds", duration: "120:42", gradient: "from-emerald-500 to-teal-700" },
-  "3": { title: "Ocean Waves", subtitle: "White Noise", duration: "87:15", gradient: "from-blue-500 to-cyan-700" },
-  "4": { title: "Bedtime Stories", subtitle: "Narrated Tales", duration: "45:30", gradient: "from-purple-500 to-pink-700" },
-  "5": { title: "Guided Sleep", subtitle: "Meditation Guide", duration: "62:15", gradient: "from-purple-500 to-indigo-700" },
-  "6": { title: "Deep Sleep", subtitle: "Sleep Therapy", duration: "71:20", gradient: "from-teal-500 to-cyan-700" },
+const SLEEPCASTS: Record<string, { title: string; subtitle: string; duration: string; gradient: string; audioUrl: string }> = {
+  "1": { 
+    title: "Moon Night", 
+    subtitle: "7 Day Audio Series", 
+    duration: "92:58", 
+    gradient: "from-indigo-500 to-purple-700",
+    audioUrl: "https://assets.codepen.io/3685267/piano.mp3"
+  },
+  "2": { 
+    title: "Rain Forest", 
+    subtitle: "Nature Sounds", 
+    duration: "120:42", 
+    gradient: "from-emerald-500 to-teal-700",
+    audioUrl: "https://assets.codepen.io/3685267/cosmic.mp3"
+  },
+  "3": { 
+    title: "Ocean Waves", 
+    subtitle: "White Noise", 
+    duration: "87:15", 
+    gradient: "from-blue-500 to-cyan-700",
+    audioUrl: "https://assets.codepen.io/3685267/piano.mp3"
+  },
+  "4": { 
+    title: "Bedtime Stories", 
+    subtitle: "Narrated Tales", 
+    duration: "45:30", 
+    gradient: "from-purple-500 to-pink-700",
+    audioUrl: "https://assets.codepen.io/3685267/cosmic.mp3"
+  },
+  "5": { 
+    title: "Guided Sleep", 
+    subtitle: "Meditation Guide", 
+    duration: "62:15", 
+    gradient: "from-purple-500 to-indigo-700",
+    audioUrl: "https://assets.codepen.io/3685267/piano.mp3"
+  },
+  "6": { 
+    title: "Deep Sleep", 
+    subtitle: "Sleep Therapy", 
+    duration: "71:20", 
+    gradient: "from-teal-500 to-cyan-700",
+    audioUrl: "https://assets.codepen.io/3685267/cosmic.mp3"
+  },
 };
 
 export default function PlayerPage() {
   const [, params] = useRoute("/player/:id");
   const castId = params?.id || "1";
   const sleepcast = SLEEPCASTS[castId] || SLEEPCASTS["1"];
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [progress, setProgress] = useState([33]);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState([0]);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateProgress = () => {
+      setCurrentTime(audio.currentTime);
+      setProgress([audio.duration ? (audio.currentTime / audio.duration) * 100 : 0]);
+    };
+
+    const updateDuration = () => {
+      setDuration(audio.duration);
+    };
+
+    audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("loadedmetadata", updateDuration);
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+      audio.removeEventListener("loadedmetadata", updateDuration);
+    };
+  }, []);
+
+  const togglePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleProgressChange = (value: number[]) => {
+    const newProgress = value[0];
+    if (audioRef.current) {
+      audioRef.current.currentTime = (newProgress / 100) * (audioRef.current.duration || 0);
+      setProgress([newProgress]);
+    }
+  };
+
+  const formatTime = (time: number) => {
+    if (!time || isNaN(time)) return "0:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.src = sleepcast.audioUrl;
+      audioRef.current.load();
+      if (isPlaying) {
+        audioRef.current.play();
+      }
+    }
+  }, [castId, sleepcast.audioUrl]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
@@ -61,14 +158,14 @@ export default function PlayerPage() {
         <div className="space-y-4 mb-10">
           <Slider 
             value={progress} 
-            onValueChange={setProgress} 
+            onValueChange={handleProgressChange} 
             max={100} 
             step={1} 
             className="[&>.absolute]:h-1.5 [&>span:first-child]:h-1.5 [&>span:first-child]:bg-white/20 [&_[role=slider]]:h-4 [&_[role=slider]]:w-4 [&_[role=slider]]:bg-white [&_[role=slider]]:border-primary [&_[role=slider]]:shadow-[0_0_20px_rgba(255,255,255,0.5)]"
           />
           <div className="flex justify-between text-xs font-mono text-white/40">
-            <span>46:03</span>
-            <span>{sleepcast.duration}</span>
+            <span>{formatTime(currentTime)}</span>
+            <span>{formatTime(duration)}</span>
           </div>
         </div>
 
@@ -86,7 +183,7 @@ export default function PlayerPage() {
             <Button 
               size="icon" 
               className="w-20 h-20 rounded-full bg-white text-background hover:bg-white/90 hover:scale-105 transition-all shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
-              onClick={() => setIsPlaying(!isPlaying)}
+              onClick={togglePlayPause}
             >
               {isPlaying ? (
                 <Pause className="w-8 h-8 fill-current ml-0.5" />
@@ -111,6 +208,9 @@ export default function PlayerPage() {
           </Link>
         </div>
       </div>
+
+      {/* Hidden audio element */}
+      <audio ref={audioRef} crossOrigin="anonymous" />
     </div>
   );
 }
