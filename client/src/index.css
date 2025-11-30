@@ -79,7 +79,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    @apply text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    background: linear-gradient(180deg, #160251 0%, #4E0FA1 57%);
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
