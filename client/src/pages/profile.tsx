@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Moon, BarChart3, Home, User, Settings, Bell, Shield, LogOut, ChevronRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import noelleProfile from "@/assets/noelle-profile.png";
 
 export default function ProfilePage() {
   return (
@@ -21,14 +22,14 @@ export default function ProfilePage() {
           <div className="relative">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-purple-400 p-1">
               <Avatar className="w-full h-full border-4 border-background">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>JD</AvatarFallback>
+                <AvatarImage src={noelleProfile} />
+                <AvatarFallback>NH</AvatarFallback>
               </Avatar>
             </div>
             <div className="absolute bottom-0 right-0 w-8 h-8 bg-green-500 rounded-full border-4 border-background" />
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-white">Jane Doe</h2>
+            <h2 className="text-2xl font-bold text-white">Noelle Hill</h2>
             <p className="text-white/50">Premium Member</p>
           </div>
         </div>
